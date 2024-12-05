@@ -17,6 +17,11 @@ const gameOverSound = document.getElementById('gameOverSound');
 const killaSound = document.getElementById('killaSound'); 
 
 
+const shuffleBtnDivEl = document.querySelector('.shuffleBtnDiv');
+const shuffleBtn = document.querySelector('.shuffleBtn');
+
+
+
 
 // Add an event listener to the button playButton.addEventListener('click', function() { audioElement.play(); // Play the audio });
 
@@ -71,18 +76,6 @@ nextBtn.addEventListener('click', () => {
             let finalPlayer = playerName + ' ' + playerNumber;
             playersArray.push(finalPlayer);
 
-            // Create an img element 
-            let oneImg = document.createElement('img'); 
-            // Set the source of the image 
-            oneImg.src = 'assets\pics\one.png'; 
-            // Replace with the actual path to your image 
-            // Optionally, you can set the alt attribute for accessibility 
-            oneImg.alt = 'One Score'; 
-            // Clear the existing text content 
-            // scoreEl.textContent = ''; 
-            // Append the img element to scoreEl 
-            // scoreEl.appendChild(img);
-
             if ( i === playerCount - 1 ){
                 playerNameEl.classList.toggle('hide');
                 thirdEl.classList.toggle('hide');
@@ -102,9 +95,6 @@ nextBtn.addEventListener('click', () => {
 
                     let scoreEl = document.createElement('div');
                     let playerScore = 0;
-
-                    console.log(playersArray);
-                    console.log(playersArray[i]);
 
                     // Split the string by space 
                     let parts = playersArray[i].split(' '); 
@@ -140,6 +130,8 @@ nextBtn.addEventListener('click', () => {
                      })
         
                     plusBtn.addEventListener('click', () => {
+                        // shuffleBtnDivEl.classList.add('hide');
+                        shuffleBtn.classList.add('hide');
                        playerScore++;
                        audioElement.play();
                        console.log(playerScore);

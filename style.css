@@ -1,15 +1,22 @@
-.thirdly {
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    border: 5px solid red;
-}
+
 
 .first, .second, .players {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
+}
+
+.first, .second, .third {
+    min-height: 400px;
+    background-color: rgb(93, 166, 177);
+}
+
+.players {
+    padding: 10px;
+    border: 5px solid rgb(52, 51, 51);
+    border-radius: 10px;
+    background-color: lightslategray;
 }
 
 .nextBtn {
@@ -29,6 +36,13 @@ input {
     display: flex;
     flex-direction: column;
 } */
+.thirdly {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    /* border: 2px solid rgb(52, 51, 51); */
+}
+
 
 p {
     text-align: center;
@@ -58,4 +72,10 @@ p {
     display: flex;
     justify-content: center;
 }
+
+.btns {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
 
