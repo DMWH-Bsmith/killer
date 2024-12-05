@@ -1,0 +1,61 @@
+.thirdly {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    border: 5px solid red;
+}
+
+.first, .second, .players {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nextBtn {
+    margin-top: 25px;
+}
+
+input {
+    margin: 10px;
+}
+
+
+.hide {
+    display: none;
+}
+
+/* .actualPlayers {
+    display: flex;
+    flex-direction: column;
+} */
+
+p {
+    text-align: center;
+}
+
+.wasabi {
+    /* min-width: 800px; */
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+
+.killa {
+    background-color: lightgreen;
+}
+
+.gameOver {
+    background-color: gray;
+}
+
+.scoreBtn {
+    font-size: xx-large;
+}
+
+.shuffleBtnDiv {
+    display: flex;
+    justify-content: center;
+}
+

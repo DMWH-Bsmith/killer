@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet"/>
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        
+        <div class="first">
+            <h1>KILLA</h1>
+            <p>How many players haus?</p>
+            <select name="playerCount" id="playerCount">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+            </select>
+            <button class="nextBtn">NEXT</button>
+
+        </div>
+        
+        <div class="second hide">
+            <h1>Enter Players Names : </h1>
+            <div class="players"></div>
+            <div class="btns">
+                <button class="backBtn">BACK</button>
+                <button class="startBtn">START</button>
+            </div>
+        </div>
+
+        <div class="third hide">
+            <p>Third</p>
+            <!-- <div class="playersContainer">
+                <div class="actualPlayers"></div>
+            </div> -->
+            <div class="actualPlayers"></div>
+
+            <div class="shuffleBtnDiv">
+                <button class="shuffleBtn">Shuffle</button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- AUDIO SHIIIIIT -->
+    <audio id="audioElement"> <source src="./assets/sounds/click.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio>
+
+    <!-- Eliminated Sound -->
+    <audio id="gameOverSound"> <source src="./assets/sounds/gameover.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio>
+
+    <audio id="killaSound"> <source src="./assets/sounds/killa.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio>
+    <!--  -->
+    
+</body>
+<script src="app.js"></script>
+</html>
