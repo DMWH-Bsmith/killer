@@ -11,6 +11,9 @@ body {
     background-color: rgb(93, 166, 177);
 }
 
+h1 {
+    text-align: center;
+}
 
 .first, .second, .players {
     display: flex;
@@ -60,7 +63,6 @@ input {
 
 /* single player row */
 .thirdly {
-    /* padding-top: 50px; */
     align-items: center;
     display: flex;
     flex-direction: row;
@@ -73,12 +75,11 @@ p {
 }
 
 .wasabi {
-    /* min-width: 800px; */
     margin-top: 5px;
     margin-bottom: 5px;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
 
 }
 
@@ -90,11 +91,15 @@ p {
     background-color: gray;
 }
 
-.scoreBtn {
+.scoreBtn, .scoreEl {
+    align-items: center;
+    text-align: center;
     font-size: xx-large;
     border-radius: 10px;
-    border: 3px solid black;
+    max-width: 50px;
+    max-height: 50px;
     min-width: 50px;
+    min-height: 50px;
 }
 
 .shuffleBtnDiv {
@@ -105,6 +110,8 @@ p {
 .btns {
     margin-top: 25px;
     margin-bottom: 25px;
+    display: flex;
+    /* justify-content: space-between; */
 }
 
 .howay {
@@ -112,8 +119,25 @@ p {
 }
 
 .padded {
-    margin-top: 25px;
-    padding: 25px;
+    margin-top: 50px;
+    padding-left: 25px;
+    /* padding: 10px; */
+}
+
+#playerCount {
+    font-size: 30px;
+    min-height: 35px;
+    min-width: 55px;
+    border-radius: 12px;
 }
 
 
+.nextBtn {
+    min-width: 100px;
+    min-height: 35px;
+    border-radius: 12px;
+}
+
+.backBtn, .startBtn {
+    border-radius: 12px;
+}

@@ -15,10 +15,13 @@ const actualPlayersEl = document.querySelector('.actualPlayers');
 const audioElement = document.getElementById('audioElement'); 
 const gameOverSound = document.getElementById('gameOverSound'); 
 const killaSound = document.getElementById('killaSound'); 
+let firstClick = 0;
 
 
 const shuffleBtnDivEl = document.querySelector('.shuffleBtnDiv');
 const shuffleBtn = document.querySelector('.shuffleBtn');
+const resetBtn = document.querySelector('.resetBtn');
+
 const singlePlayerRowDiv = document.querySelector('.wasabi');
 
 
@@ -89,7 +92,7 @@ nextBtn.addEventListener('click', () => {
             if ( i === playerCount - 1 ){
                 playerNameEl.classList.toggle('hide');
                 thirdEl.classList.toggle('hide');
-                console.log(playersArray);
+
                 for (let i = 0; i < playersArray.length; i++){
                     let totalDivEl = document.createElement('div');
                     totalDivEl.classList.add('wasabi');
@@ -104,6 +107,7 @@ nextBtn.addEventListener('click', () => {
 
 
                     let scoreEl = document.createElement('div');
+                    scoreEl.classList.add('scoreEl');
                     let playerScore = 0;
 
                     // Split the string by space 
@@ -123,7 +127,8 @@ nextBtn.addEventListener('click', () => {
                         if (playerScore <= -1){
                             playerScore = -1;
                             gameOverSound.play();
-                            totalDivEl.classList.add('gameOver');    
+                            totalDivEl.classList.add('gameOver');   
+                            minusBtn.classList.toggle('hide');
                         } else if (playerScore === 0){
                             audioElement.play();
                             scoreEl.textContent = '';
@@ -131,6 +136,7 @@ nextBtn.addEventListener('click', () => {
                             audioElement.play();
                             scoreEl.textContent = '/';
                         } else if (playerScore === 2) {
+                            plusBtn.classList.toggle('hide');
                             audioElement.play();
                             scoreEl.textContent = 'X';
                             totalDivEl.classList.remove('killa');
@@ -140,40 +146,56 @@ nextBtn.addEventListener('click', () => {
                      })
         
                     plusBtn.addEventListener('click', () => {
-                        // shuffleBtnDivEl.classList.add('hide');
-                        shuffleBtn.classList.add('hide');
-                       playerScore++;
-                       audioElement.play();
-                       console.log(playerScore);
-                       if (playerScore === 0){
-                        totalDivEl.classList.remove('gameOver');
-                        divEl.textContent = playersArray[i];
-                       }else if (playerScore === 1){
-                        // scoreEl.appendChild(oneImg);
-                        scoreEl.textContent = '/';
-                       } else if (playerScore === 2) {
-                        scoreEl.textContent = 'X';
-                       } else if (playerScore >= 3) {
-                        playerScore = 3;
-                        scoreEl.textContent = '(X)';
-                        totalDivEl.classList.add('killa');
-                        killaSound.play();
-                       }
+                        if(firstClick === 0){
+                            shuffleBtn.classList.toggle('hide');
+                            resetBtn.classList.toggle('hide');
+                        }
+                        firstClick++;
+                        playerScore++;
+                        audioElement.play();
+                        if (playerScore === 0){
+                            totalDivEl.classList.remove('gameOver');
+                            minusBtn.classList.toggle('hide');
+                            divEl.textContent = parts[0];
+                        }else if (playerScore === 1){
+                            scoreEl.textContent = '/';
+                        } else if (playerScore === 2) {
+                            scoreEl.textContent = 'X';
+                        } else if (playerScore >= 3) {
+                            playerScore = 3;
+                            scoreEl.textContent = '(X)';
+                            totalDivEl.classList.add('killa');
+                            plusBtn.classList.toggle('hide');
+
+                            killaSound.play();
+                        }
                     })
 
                     shuffleBtn.addEventListener('click', () => {
-                        // if ( i === playersArray.length - 1){
+                        if ( i === playersArray.length - 1){
                             shuffleArray(playersArray);
                             console.log(playersArray);
-                            // for ( let i = 1; i < playersArray.length; i ++){
+                            for ( let i = 1; i < playerCount; i ++){
                             let parts = playersArray[i].split(' '); 
                             divEl.textContent = parts[0];
                             numberEl.textContent = parseInt(parts[1]);
-                            // }
+                            }
                             // ITS WORKING
                             // HOW DO I RE INSERT
                             
-                        // }
+                        }
+                    })
+
+                    resetBtn.addEventListener('click', ()=> {
+                        shuffleBtn.classList.toggle('hide');
+                        resetBtn.classList.toggle('hide');
+                        console.log('reset clicked!');
+                        scoreEl.textContent = '';
+                        totalDivEl.classList.remove('gameOver');
+                        totalDivEl.classList.remove('killa');
+                        firstClick = 0;
+                        console.log(playersArray);
+                        playerScore = 0;
                     })
         
                     totalDivEl.appendChild(minusBtn);
