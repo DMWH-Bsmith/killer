@@ -1,4 +1,18 @@
+body { 
+    /* background-color: lightblue;  */
+    background-color: rgb(93, 166, 177);
+    /* Replace with your desired color */ 
+    margin: 0; 
+    /* Ensures the background color spans the entire page */ 
+} 
 
+.content { 
+    padding: 20px; 
+    /* background-color: white;  */
+    background-color: rgb(93, 166, 177);
+
+    /* Ensure inner content has a different background if needed */ 
+}
 
 
 .first, .second, .players {
