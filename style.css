@@ -24,9 +24,7 @@ body {
 
 .first, .second {
     overflow: hidden;
-
-    transform: scale(3); 
-    /* Adjust the scale factor as needed */
+    transform: scale(2); 
     transform-origin: center; 
 }
 
