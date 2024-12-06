@@ -8,10 +8,7 @@ body {
 
 .content { 
     padding: 20px; 
-    /* background-color: white;  */
     background-color: rgb(93, 166, 177);
-
-    /* Ensure inner content has a different background if needed */ 
 }
 
 
@@ -24,30 +21,24 @@ body {
 
 .first, .second {
     overflow: hidden;
-    transform: scale(2); 
+    transform: scale(1.2); 
     transform-origin: center; 
 }
 
 .first, .second, .third {
-    margin-top: 190px;
+    margin-top: 25px;
     min-height: 400px;
     background-color: rgb(93, 166, 177);
 }
 
 .third {
     overflow: hidden;
-
     transform: scale(1.5); 
-    /* Adjust the scale factor as needed */
     transform-origin: center; 
     padding-left: 20px;
     padding-right: 50px;
 }
 
-/* .padded {
-    margin-top: 30px;
-
-} */
 
 .players {
     padding: 10px;
@@ -73,7 +64,7 @@ input {
     align-items: center;
     display: flex;
     flex-direction: row;
-    /* border: 2px solid rgb(52, 51, 51); */
+    justify-content: space-between;
 }
 
 
@@ -121,7 +112,8 @@ p {
 }
 
 .padded {
-    padding: 50px;
+    margin-top: 25px;
+    padding: 25px;
 }
 
 
