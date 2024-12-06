@@ -19,6 +19,7 @@ const killaSound = document.getElementById('killaSound');
 
 const shuffleBtnDivEl = document.querySelector('.shuffleBtnDiv');
 const shuffleBtn = document.querySelector('.shuffleBtn');
+const singlePlayerRowDiv = document.querySelector('.wasabi');
 
 
 
@@ -28,6 +29,14 @@ const shuffleBtn = document.querySelector('.shuffleBtn');
 
 let playerCount = 0;
 let playersArray = [];
+
+function shuffleArray(array) { 
+    for (let i = array.length - 1; i > 0; i--) { 
+    const j = Math.floor(Math.random() * (i + 1)); 
+    [array[i], array[j]] = [array[j], array[i]]; // Swap elements 
+    } 
+    return array; 
+} 
 
 
 
@@ -75,6 +84,7 @@ nextBtn.addEventListener('click', () => {
             let playerNumber = dropdown.value;
             let finalPlayer = playerName + ' ' + playerNumber;
             playersArray.push(finalPlayer);
+            
 
             if ( i === playerCount - 1 ){
                 playerNameEl.classList.toggle('hide');
@@ -113,7 +123,7 @@ nextBtn.addEventListener('click', () => {
                         if (playerScore <= -1){
                             playerScore = -1;
                             gameOverSound.play();
-                            divEl.classList.add('gameOver');    
+                            totalDivEl.classList.add('gameOver');    
                         } else if (playerScore === 0){
                             audioElement.play();
                             scoreEl.textContent = '';
@@ -123,7 +133,7 @@ nextBtn.addEventListener('click', () => {
                         } else if (playerScore === 2) {
                             audioElement.play();
                             scoreEl.textContent = 'X';
-                            divEl.classList.remove('killa');
+                            totalDivEl.classList.remove('killa');
                         } else if (playerScore === 3) {
                             scoreEl.textContent = 'dgsdfbsfdbds';
                         }
@@ -136,7 +146,7 @@ nextBtn.addEventListener('click', () => {
                        audioElement.play();
                        console.log(playerScore);
                        if (playerScore === 0){
-                        divEl.classList.remove('gameOver');
+                        totalDivEl.classList.remove('gameOver');
                         divEl.textContent = playersArray[i];
                        }else if (playerScore === 1){
                         // scoreEl.appendChild(oneImg);
@@ -146,9 +156,24 @@ nextBtn.addEventListener('click', () => {
                        } else if (playerScore >= 3) {
                         playerScore = 3;
                         scoreEl.textContent = '(X)';
-                        divEl.classList.add('killa');
+                        totalDivEl.classList.add('killa');
                         killaSound.play();
                        }
+                    })
+
+                    shuffleBtn.addEventListener('click', () => {
+                        // if ( i === playersArray.length - 1){
+                            shuffleArray(playersArray);
+                            console.log(playersArray);
+                            // for ( let i = 1; i < playersArray.length; i ++){
+                            let parts = playersArray[i].split(' '); 
+                            divEl.textContent = parts[0];
+                            numberEl.textContent = parseInt(parts[1]);
+                            // }
+                            // ITS WORKING
+                            // HOW DO I RE INSERT
+                            
+                        // }
                     })
         
                     totalDivEl.appendChild(minusBtn);
