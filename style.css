@@ -63,10 +63,11 @@ input {
 
 /* single player row */
 .thirdly {
+    margin: -8px;
     align-items: center;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    border: 3px solid turquoise;
 }
 
 
@@ -110,7 +111,7 @@ p {
 .btns {
     margin-top: 25px;
     margin-bottom: 25px;
-    display: flex;
+    /* display: flex; */
     /* justify-content: space-between; */
 }
 
@@ -129,6 +130,8 @@ p {
     min-height: 35px;
     min-width: 55px;
     border-radius: 12px;
+    text-align: center;
+    border: 3px solid turquoise;
 }
 
 
@@ -140,4 +143,21 @@ p {
 
 .backBtn, .startBtn {
     border-radius: 12px;
+}
+
+.playa {
+    min-height: 30px;
+    max-width: 175px;
+    font-size: 20px;
+}
+
+#numberDropdown {
+    min-height: 36px;
+    margin-left: -11px;
+    margin-right: 11px;
+}
+
+.target {
+    display: flex;
+    justify-content: space-between;
 }

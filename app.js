@@ -104,6 +104,7 @@ nextBtn.addEventListener('click', () => {
 
                     let divEl = document.createElement('div');
                     let numberEl = document.createElement('div');
+                    
 
 
                     let scoreEl = document.createElement('div');
@@ -128,7 +129,7 @@ nextBtn.addEventListener('click', () => {
                             playerScore = -1;
                             gameOverSound.play();
                             totalDivEl.classList.add('gameOver');   
-                            minusBtn.classList.toggle('hide');
+                            // minusBtn.classList.toggle('hide');
                         } else if (playerScore === 0){
                             audioElement.play();
                             scoreEl.textContent = '';
@@ -136,7 +137,7 @@ nextBtn.addEventListener('click', () => {
                             audioElement.play();
                             scoreEl.textContent = '/';
                         } else if (playerScore === 2) {
-                            plusBtn.classList.toggle('hide');
+                            // plusBtn.classList.toggle('hide');
                             audioElement.play();
                             scoreEl.textContent = 'X';
                             totalDivEl.classList.remove('killa');
@@ -155,7 +156,7 @@ nextBtn.addEventListener('click', () => {
                         audioElement.play();
                         if (playerScore === 0){
                             totalDivEl.classList.remove('gameOver');
-                            minusBtn.classList.toggle('hide');
+                            // minusBtn.classList.toggle('hide');
                             divEl.textContent = parts[0];
                         }else if (playerScore === 1){
                             scoreEl.textContent = '/';
@@ -165,7 +166,7 @@ nextBtn.addEventListener('click', () => {
                             playerScore = 3;
                             scoreEl.textContent = '(X)';
                             totalDivEl.classList.add('killa');
-                            plusBtn.classList.toggle('hide');
+                            // plusBtn.classList.toggle('hide');
 
                             killaSound.play();
                         }
@@ -196,6 +197,9 @@ nextBtn.addEventListener('click', () => {
                         firstClick = 0;
                         console.log(playersArray);
                         playerScore = 0;
+                        // plusBtn.classList.toggle('hide');
+                        // minusBtn.classList.toggle('hide');
+
                     })
         
                     totalDivEl.appendChild(minusBtn);
