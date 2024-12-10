@@ -38,7 +38,7 @@ h1 {
     overflow: hidden;
     transform: scale(1.5); 
     transform-origin: center; 
-    padding-left: 20px;
+    padding-left: 25px;
     padding-right: 50px;
 }
 
@@ -67,7 +67,7 @@ input {
     align-items: center;
     display: flex;
     flex-direction: row;
-    border: 3px solid turquoise;
+    /* border: 3px solid turquoise; */
 }
 
 
@@ -143,6 +143,9 @@ p {
 
 .backBtn, .startBtn {
     border-radius: 12px;
+    min-height: 50px;
+    min-width: 75px;
+
 }
 
 .playa {
@@ -160,4 +163,12 @@ p {
 .target {
     display: flex;
     justify-content: space-between;
+}
+
+.backBtn {
+    margin-right: 10px;
+}
+
+.startBtn {
+    margin-left: 10px;
 }
