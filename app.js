@@ -137,6 +137,7 @@ nextBtn.addEventListener('click', () => {
                             gameOverSound.play();
                             totalDivEl.classList.add('gameOver');   
                             // minusBtn.classList.toggle('hide');
+                            numberEl.classList.toggle('hide');
                         } else if (playerScore === 0){
                             audioElement.play();
                             scoreEl.textContent = '';
@@ -162,8 +163,8 @@ nextBtn.addEventListener('click', () => {
                         playerScore++;
                         audioElement.play();
                         if (playerScore === 0){
+                            numberEl.classList.toggle('hide');
                             totalDivEl.classList.remove('gameOver');
-                            // minusBtn.classList.toggle('hide');
                             divEl.textContent = parts[0];
                         }else if (playerScore === 1){
                             scoreEl.textContent = '|';
