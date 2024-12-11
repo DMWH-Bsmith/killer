@@ -65,6 +65,8 @@ nextBtn.addEventListener('click', () => {
 
         let dropdown = document.createElement('select');
         dropdown.id = 'numberDropdown';
+        // dropdown.text = dropdown[i].value;
+
 
         // Populate the dropdown with numbers 1 to 20 
         for (let i = 1; i <= 20; i++) { 
@@ -73,6 +75,11 @@ nextBtn.addEventListener('click', () => {
             option.textContent = i; 
             dropdown.appendChild(option); 
         }
+
+        // dropdown.innerHTML = i;
+        console.log(dropdown[i].value);
+        // console.log(dropdown.value);
+        
 
         
         // singlePlayerDiv.appendChild(div);
