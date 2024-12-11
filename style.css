@@ -101,10 +101,7 @@ p {
     text-align: center;
     font-size: xx-large;
     border-radius: 10px;
-    /* max-width: 50px; */
-    /* max-height: 50px; */
-    /* min-width: 50px; */
-    /* min-height: 50px; */
+    min-width: 50px;
 }
 
 .killa {
