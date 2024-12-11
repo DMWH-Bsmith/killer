@@ -142,11 +142,11 @@ nextBtn.addEventListener('click', () => {
                             scoreEl.textContent = '';
                         } else if (playerScore === 1){
                             audioElement.play();
-                            scoreEl.textContent = '/';
+                            scoreEl.textContent = '|';
                         } else if (playerScore === 2) {
                             // plusBtn.classList.toggle('hide');
                             audioElement.play();
-                            scoreEl.textContent = 'X';
+                            scoreEl.textContent = '| |';
                             totalDivEl.classList.remove('killa');
                         } else if (playerScore === 3) {
                             scoreEl.textContent = 'dgsdfbsfdbds';
@@ -166,12 +166,12 @@ nextBtn.addEventListener('click', () => {
                             // minusBtn.classList.toggle('hide');
                             divEl.textContent = parts[0];
                         }else if (playerScore === 1){
-                            scoreEl.textContent = '/';
+                            scoreEl.textContent = '|';
                         } else if (playerScore === 2) {
-                            scoreEl.textContent = 'X';
+                            scoreEl.textContent = '| |';
                         } else if (playerScore >= 3) {
                             playerScore = 3;
-                            scoreEl.textContent = '(X)';
+                            scoreEl.textContent = '| | |';
                             totalDivEl.classList.add('killa');
                             // plusBtn.classList.toggle('hide');
 
