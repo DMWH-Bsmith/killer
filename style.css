@@ -54,6 +54,7 @@ h1 {
 
 
 .players {
+    margin-top: 30px;
     padding: 10px;
     border: 3px solid rgb(52, 51, 51);
     border-radius: 10px 10px 0px 0px;
@@ -85,10 +86,8 @@ p {
 }
 
 .wasabi {
-    /* border: 3px solid turquoise; */
-    /* background-color: lightcyan; */
     border-radius: 12px;
-    padding: 10px;
+    padding: 15px;
     margin-top: 5px;
     margin-bottom: 5px;
     display: flex;
@@ -101,14 +100,20 @@ p {
     text-align: center;
     font-size: xx-large;
     border-radius: 10px;
-    min-width: 50px;
+    min-width: 40px;
 }
+
+.numbino {
+    min-width: 20px;
+}
+
+
 
 .killa {
     background-color: lightgreen;
 }
 
-.gameOver {
+.gameOver, .grey {
     background-color: gray;
 }
 

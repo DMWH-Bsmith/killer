@@ -103,16 +103,17 @@ nextBtn.addEventListener('click', () => {
                 for (let i = 0; i < playersArray.length; i++){
                     let totalDivEl = document.createElement('div');
                     totalDivEl.classList.add('wasabi');
-                    let plusBtn = document.createElement('button');
-                    plusBtn.classList.add('scoreBtn');
+                    
 
                     let minusBtn = document.createElement('button');
                     minusBtn.classList.add('scoreBtn');
 
                     let divEl = document.createElement('div');
                     let numberEl = document.createElement('div');
+                    numberEl.classList.add('numbino');
                     
-
+                    let plusBtn = document.createElement('button');
+                    plusBtn.classList.add('scoreBtn');
 
                     let scoreEl = document.createElement('div');
                     scoreEl.classList.add('scoreEl');
@@ -130,14 +131,12 @@ nextBtn.addEventListener('click', () => {
         
                     minusBtn.addEventListener('click', () => {
                         playerScore--;
-                        audioElement.play();
                         console.log(playerScore);
-                        if (playerScore <= -1){
-                            playerScore = -1;
+                        if (playerScore === -1){
                             gameOverSound.play();
                             totalDivEl.classList.add('gameOver');   
-                            // minusBtn.classList.toggle('hide');
-                            numberEl.classList.toggle('hide');
+                            minusBtn.classList.toggle('grey');
+                            plusBtn.classList.toggle('grey');
                         } else if (playerScore === 0){
                             audioElement.play();
                             scoreEl.textContent = '';
@@ -145,17 +144,21 @@ nextBtn.addEventListener('click', () => {
                             audioElement.play();
                             scoreEl.textContent = '|';
                         } else if (playerScore === 2) {
-                            // plusBtn.classList.toggle('hide');
                             audioElement.play();
                             scoreEl.textContent = '| |';
                             totalDivEl.classList.remove('killa');
-                        } else if (playerScore === 3) {
-                            scoreEl.textContent = 'dgsdfbsfdbds';
+                            minusBtn.classList.remove('grey');
+                            // plusBtn.classList.toggle('grey');
+                        } else if (playerScore === -2) {
+                            // minusBtn.classList.add('grey');
+                            // plusBtn.classList.add('grey');
+                            playerScore = -1;
                         }
                      })
         
                     plusBtn.addEventListener('click', () => {
                         if(firstClick === 0){
+                            
                             shuffleBtn.classList.toggle('hide');
                             resetBtn.classList.toggle('hide');
                         }
@@ -163,7 +166,8 @@ nextBtn.addEventListener('click', () => {
                         playerScore++;
                         audioElement.play();
                         if (playerScore === 0){
-                            numberEl.classList.toggle('hide');
+                            minusBtn.classList.toggle('grey');
+                            plusBtn.classList.toggle('grey');
                             totalDivEl.classList.remove('gameOver');
                             divEl.textContent = parts[0];
                         }else if (playerScore === 1){
