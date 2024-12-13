@@ -29,7 +29,6 @@ let optionArray = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"
 ////////////////////////////////////////////////////////////////////////
 // VALUES /////////////////////////////////////////////////////////////
 let playerCount = 0;
-let firstClick = 0;
 let x = 1;
 let input;
 let dropdown;
@@ -132,12 +131,10 @@ addBtn.addEventListener('click', () => {
 
     let finalPlayer = playerName + ' ' + playerNumber;
     bakArray.push(finalPlayer);
-    // console.log(bakArray);
     input.value = '';
     dropdown.value = x;
     if(playerCount === bakArray.length){
 
-        // if ( i === playerCount - 1 ){
             playerNameEl.classList.toggle('hide');
             thirdEl.classList.toggle('hide');
 
@@ -160,9 +157,7 @@ addBtn.addEventListener('click', () => {
                 scoreEl.classList.add('scoreEl');
                 let playerScore = 0;
 
-                // Split the string by space 
                 let parts = bakArray[i].split(' '); 
-                // Assign the parts to variables         
     
                 minusBtn.textContent = '-';
                 divEl.textContent = parts[0];
@@ -171,6 +166,8 @@ addBtn.addEventListener('click', () => {
                 scoreEl.textContent = '';
     
                 minusBtn.addEventListener('click', () => {
+                    shuffleBtn.classList.add('hide');
+                    resetBtn.classList.remove('hide');
                     playerScore--;
                     console.log(playerScore);
                     if (playerScore === -1){
@@ -189,21 +186,14 @@ addBtn.addEventListener('click', () => {
                         scoreEl.textContent = '| |';
                         totalDivEl.classList.remove('killa');
                         minusBtn.classList.remove('grey');
-                        // plusBtn.classList.toggle('grey');
                     } else if (playerScore === -2) {
-                        // minusBtn.classList.add('grey');
-                        // plusBtn.classList.add('grey');
                         playerScore = -1;
                     }
                     })
     
                 plusBtn.addEventListener('click', () => {
-                    if(firstClick === 0){
-                        
-                        shuffleBtn.classList.toggle('hide');
-                        resetBtn.classList.toggle('hide');
-                    }
-                    firstClick++;
+                    shuffleBtn.classList.add('hide');
+                    resetBtn.classList.remove('hide');
                     playerScore++;
                     audioElement.play();
                     if (playerScore === 0){
@@ -219,8 +209,6 @@ addBtn.addEventListener('click', () => {
                         playerScore = 3;
                         scoreEl.textContent = '| | |';
                         totalDivEl.classList.add('killa');
-                        // plusBtn.classList.toggle('hide');
-
                         killaSound.play();
                     }
                 })
@@ -239,7 +227,6 @@ addBtn.addEventListener('click', () => {
                             let totalDivEl = document.createElement('div');
                             totalDivEl.classList.add('wasabi');
                             
-        
                             let minusBtn = document.createElement('button');
                             minusBtn.classList.add('scoreBtn');
         
@@ -291,11 +278,9 @@ addBtn.addEventListener('click', () => {
                                 })
 
                             plusBtn.addEventListener('click', () => {
-                                shuffleBtn.classList.toggle('hide');
-                                if(firstClick === 0){
-                                    resetBtn.classList.toggle('hide');
-                                }
-                                firstClick++;
+                                shuffleBtn.classList.add('hide');
+                                resetBtn.classList.remove('hide');
+                                // firstClick++;
                                 playerScore++;
                                 audioElement.play();
                                 if (playerScore === 0){
@@ -324,7 +309,7 @@ addBtn.addEventListener('click', () => {
                                 totalDivEl.classList.remove('killa');
                                 plusBtn.classList.remove('grey');
                                 minusBtn.classList.remove('grey');
-                                firstClick = 0;
+                                // firstClick = 0;
                                 playerScore = 0;
         
                             })
@@ -335,14 +320,12 @@ addBtn.addEventListener('click', () => {
                             totalDivEl.appendChild(plusBtn);
                             totalDivEl.appendChild(scoreEl);
                             actualPlayersEl.appendChild(totalDivEl);
-                            // thirdEl.appendChild(actualPlayersEl);
-
                         }
                     }
                 })
 
                 resetBtn.addEventListener('click', ()=> {
-                    shuffleBtn.classList.add('hide');
+                    shuffleBtn.classList.remove('hide');
                     resetBtn.classList.add('hide');
                     console.log('reset clicked!');
                     scoreEl.textContent = '';
@@ -351,14 +334,9 @@ addBtn.addEventListener('click', () => {
                     plusBtn.classList.remove('grey');
                     minusBtn.classList.remove('grey');
 
-                    firstClick = 0;
                     console.log(playersArray);
                     playerScore = 0;
-                    // plusBtn.classList.toggle('hide');
-                    // minusBtn.classList.toggle('hide');
-
                 })
-    
 
                 totalDivEl.appendChild(minusBtn);
                 totalDivEl.appendChild(divEl);
@@ -366,8 +344,6 @@ addBtn.addEventListener('click', () => {
                 totalDivEl.appendChild(plusBtn);
                 totalDivEl.appendChild(scoreEl);
                 actualPlayersEl.appendChild(totalDivEl);
-    
-    
             }
     }
 })
