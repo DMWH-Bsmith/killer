@@ -30,6 +30,9 @@ let optionArray = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"
 // VALUES /////////////////////////////////////////////////////////////
 let playerCount = 0;
 let firstClick = 0;
+let x = 1;
+let input;
+let dropdown;
 //////////////////////////////////////////////////////////////////////
 
 
@@ -53,17 +56,16 @@ nextBtn.addEventListener('click', () => {
     playerNameEl.classList.toggle('hide');
     playerCount = parseInt(playerCountVal.value, 10);
 
-    let x = 1;
 
     let singlePlayerDiv = document.createElement('div');
     singlePlayerDiv.classList.add('thirdly');
 
-    let input = document.createElement('input');
+    input = document.createElement('input');
     input.classList.add(`player${x}`);
     input.classList.add('playa');
 
 
-    let dropdown = document.createElement('select');
+    dropdown = document.createElement('select');
     dropdown.id = 'numberDropdown';
 
 
@@ -82,276 +84,7 @@ nextBtn.addEventListener('click', () => {
     input.focus();
 
 
-    addBtn.addEventListener('click', () => {
-        x++;
-        audioElement.play();
-        input.focus();
-        let playerName = input.value.toUpperCase();
-        let playerNumber = dropdown.value;
-        // console.log(playerNumber);
-        // console.log(typeof(playerNumber));
-        optionArray = optionArray.filter(number => number !== playerNumber);
-        console.log(optionArray);
-
-        
-
-        for (let i = 1; i <= optionArray.length; i++) { 
-            console.log(optionArray.length);
-            const option = document.createElement('option'); 
-            option.value = i; 
-            option.textContent = i; 
-            dropdown.appendChild(option); 
-        }
-
-        let finalPlayer = playerName + ' ' + playerNumber;
-        bakArray.push(finalPlayer);
-        // console.log(bakArray);
-        input.value = '';
-        dropdown.value = x;
-        if(playerCount === bakArray.length){
-
-            // if ( i === playerCount - 1 ){
-                playerNameEl.classList.toggle('hide');
-                thirdEl.classList.toggle('hide');
-
-                for (let i = 0; i < bakArray.length; i++){
-                    let totalDivEl = document.createElement('div');
-                    totalDivEl.classList.add('wasabi');
-                    
-
-                    let minusBtn = document.createElement('button');
-                    minusBtn.classList.add('scoreBtn');
-
-                    let divEl = document.createElement('div');
-                    let numberEl = document.createElement('div');
-                    numberEl.classList.add('numbino');
-                    
-                    let plusBtn = document.createElement('button');
-                    plusBtn.classList.add('scoreBtn');
-
-                    let scoreEl = document.createElement('div');
-                    scoreEl.classList.add('scoreEl');
-                    let playerScore = 0;
-
-                    // Split the string by space 
-                    let parts = bakArray[i].split(' '); 
-                    // Assign the parts to variables         
-        
-                    minusBtn.textContent = '-';
-                    divEl.textContent = parts[0];
-                    numberEl.textContent = parseInt(parts[1]);
-                    plusBtn.textContent = '+';
-                    scoreEl.textContent = '';
-        
-                    minusBtn.addEventListener('click', () => {
-                        playerScore--;
-                        console.log(playerScore);
-                        if (playerScore === -1){
-                            gameOverSound.play();
-                            totalDivEl.classList.add('gameOver');   
-                            minusBtn.classList.toggle('grey');
-                            plusBtn.classList.toggle('grey');
-                        } else if (playerScore === 0){
-                            audioElement.play();
-                            scoreEl.textContent = '';
-                        } else if (playerScore === 1){
-                            audioElement.play();
-                            scoreEl.textContent = '|';
-                        } else if (playerScore === 2) {
-                            audioElement.play();
-                            scoreEl.textContent = '| |';
-                            totalDivEl.classList.remove('killa');
-                            minusBtn.classList.remove('grey');
-                            // plusBtn.classList.toggle('grey');
-                        } else if (playerScore === -2) {
-                            // minusBtn.classList.add('grey');
-                            // plusBtn.classList.add('grey');
-                            playerScore = -1;
-                        }
-                        })
-        
-                    plusBtn.addEventListener('click', () => {
-                        if(firstClick === 0){
-                            
-                            shuffleBtn.classList.toggle('hide');
-                            resetBtn.classList.toggle('hide');
-                        }
-                        firstClick++;
-                        playerScore++;
-                        audioElement.play();
-                        if (playerScore === 0){
-                            minusBtn.classList.toggle('grey');
-                            plusBtn.classList.toggle('grey');
-                            totalDivEl.classList.remove('gameOver');
-                            divEl.textContent = parts[0];
-                        }else if (playerScore === 1){
-                            scoreEl.textContent = '|';
-                        } else if (playerScore === 2) {
-                            scoreEl.textContent = '| |';
-                        } else if (playerScore >= 3) {
-                            playerScore = 3;
-                            scoreEl.textContent = '| | |';
-                            totalDivEl.classList.add('killa');
-                            // plusBtn.classList.toggle('hide');
-
-                            killaSound.play();
-                        }
-                    })
-
-                    shuffleBtn.addEventListener('click', () => {
-                        actualPlayersEl.textContent = '';
-                        if ( i === bakArray.length - 1){
-                            shuffleArray(bakArray);
-                            for ( let i = 1; i < playerCount; i ++){
-                            let parts = bakArray[i].split(' '); 
-                            divEl.textContent = parts[0];
-                            numberEl.textContent = parseInt(parts[1]);
-                            }
-                            console.log(bakArray);
-                            for (let i = 0; i < bakArray.length; i++){
-                                let totalDivEl = document.createElement('div');
-                                totalDivEl.classList.add('wasabi');
-                                
-            
-                                let minusBtn = document.createElement('button');
-                                minusBtn.classList.add('scoreBtn');
-            
-                                let divEl = document.createElement('div');
-                                let numberEl = document.createElement('div');
-                                numberEl.classList.add('numbino');
-                                
-                                let plusBtn = document.createElement('button');
-                                plusBtn.classList.add('scoreBtn');
-            
-                                let scoreEl = document.createElement('div');
-                                scoreEl.classList.add('scoreEl');
-                                let playerScore = 0;
-            
-                                let parts = bakArray[i].split(' '); 
-                    
-                                minusBtn.textContent = '-';
-                                divEl.textContent = parts[0];
-                                numberEl.textContent = parseInt(parts[1]);
-                                plusBtn.textContent = '+';
-                                scoreEl.textContent = '';
-
-
-                                minusBtn.addEventListener('click', () => {
-                                    playerScore--;
-                                    console.log(playerScore);
-                                    if (playerScore === -1){
-                                        gameOverSound.play();
-                                        totalDivEl.classList.add('gameOver');   
-                                        minusBtn.classList.toggle('grey');
-                                        plusBtn.classList.toggle('grey');
-                                    } else if (playerScore === 0){
-                                        audioElement.play();
-                                        scoreEl.textContent = '';
-                                    } else if (playerScore === 1){
-                                        audioElement.play();
-                                        scoreEl.textContent = '|';
-                                    } else if (playerScore === 2) {
-                                        audioElement.play();
-                                        scoreEl.textContent = '| |';
-                                        totalDivEl.classList.remove('killa');
-                                        minusBtn.classList.remove('grey');
-                                        // plusBtn.classList.toggle('grey');
-                                    } else if (playerScore === -2) {
-                                        // minusBtn.classList.add('grey');
-                                        // plusBtn.classList.add('grey');
-                                        playerScore = -1;
-                                    }
-                                    })
-
-                                plusBtn.addEventListener('click', () => {
-                                    if(firstClick === 0){
-                                        
-                                        shuffleBtn.classList.toggle('hide');
-                                        resetBtn.classList.toggle('hide');
-                                    }
-                                    firstClick++;
-                                    playerScore++;
-                                    audioElement.play();
-                                    if (playerScore === 0){
-                                        minusBtn.classList.toggle('grey');
-                                        plusBtn.classList.toggle('grey');
-                                        totalDivEl.classList.remove('gameOver');
-                                        divEl.textContent = parts[0];
-                                    }else if (playerScore === 1){
-                                        scoreEl.textContent = '|';
-                                    } else if (playerScore === 2) {
-                                        scoreEl.textContent = '| |';
-                                    } else if (playerScore >= 3) {
-                                        playerScore = 3;
-                                        scoreEl.textContent = '| | |';
-                                        totalDivEl.classList.add('killa');
-                                        // plusBtn.classList.toggle('hide');
-            
-                                        killaSound.play();
-                                    }
-                                })
-
-                                resetBtn.addEventListener('click', ()=> {
-                                    shuffleBtn.classList.toggle('hide');
-                                    resetBtn.classList.toggle('hide');
-                                    console.log('reset clicked!');
-                                    scoreEl.textContent = '';
-                                    totalDivEl.classList.remove('gameOver');
-                                    totalDivEl.classList.remove('killa');
-                                    plusBtn.classList.remove('grey');
-                                    minusBtn.classList.remove('grey');
-            
-                                    firstClick = 0;
-                                    console.log(playersArray);
-                                    playerScore = 0;
-                                    // plusBtn.classList.toggle('hide');
-                                    // minusBtn.classList.toggle('hide');
-            
-                                })
-
-                                totalDivEl.appendChild(minusBtn);
-                                totalDivEl.appendChild(divEl);
-                                totalDivEl.appendChild(numberEl);
-                                totalDivEl.appendChild(plusBtn);
-                                totalDivEl.appendChild(scoreEl);
-                                actualPlayersEl.appendChild(totalDivEl);
-                                // thirdEl.appendChild(actualPlayersEl);
-
-                            }
-                        }
-                    })
-
-                    resetBtn.addEventListener('click', ()=> {
-                        shuffleBtn.classList.toggle('hide');
-                        resetBtn.classList.toggle('hide');
-                        console.log('reset clicked!');
-                        scoreEl.textContent = '';
-                        totalDivEl.classList.remove('gameOver');
-                        totalDivEl.classList.remove('killa');
-                        plusBtn.classList.remove('grey');
-                        minusBtn.classList.remove('grey');
-
-                        firstClick = 0;
-                        console.log(playersArray);
-                        playerScore = 0;
-                        // plusBtn.classList.toggle('hide');
-                        // minusBtn.classList.toggle('hide');
-
-                    })
-        
-
-                    totalDivEl.appendChild(minusBtn);
-                    totalDivEl.appendChild(divEl);
-                    totalDivEl.appendChild(numberEl);
-                    totalDivEl.appendChild(plusBtn);
-                    totalDivEl.appendChild(scoreEl);
-                    actualPlayersEl.appendChild(totalDivEl);
-        
-        
-                }
-        }
-    })
-
+   
         
      
 
@@ -371,6 +104,274 @@ nextBtn.addEventListener('click', () => {
         playerCount = 0;
     })
 })
+
+addBtn.addEventListener('click', () => {
+    x++;
+    audioElement.play();
+    input.focus();
+    let playerName = input.value.toUpperCase();
+    let playerNumber = dropdown.value;
+
+    let index = optionArray.indexOf(playerNumber); 
+    if (index !== -1) { 
+        optionArray.splice(index, 1); 
+        // Remove the element at the found index 
+        }
+
+        console.log(optionArray);
+    
+    for (let i = 1; i <= optionArray.length; i++) { 
+        // console.log(optionArray.length);
+        const option = document.createElement('option'); 
+        option.value = optionArray[i];
+        // console.log(optionArray[i]); 
+        option.textContent = optionArray[i]; 
+        dropdown.appendChild(option); 
+        
+    }
+
+    let finalPlayer = playerName + ' ' + playerNumber;
+    bakArray.push(finalPlayer);
+    // console.log(bakArray);
+    input.value = '';
+    dropdown.value = x;
+    if(playerCount === bakArray.length){
+
+        // if ( i === playerCount - 1 ){
+            playerNameEl.classList.toggle('hide');
+            thirdEl.classList.toggle('hide');
+
+            for (let i = 0; i < bakArray.length; i++){
+                let totalDivEl = document.createElement('div');
+                totalDivEl.classList.add('wasabi');
+                
+
+                let minusBtn = document.createElement('button');
+                minusBtn.classList.add('scoreBtn');
+
+                let divEl = document.createElement('div');
+                let numberEl = document.createElement('div');
+                numberEl.classList.add('numbino');
+                
+                let plusBtn = document.createElement('button');
+                plusBtn.classList.add('scoreBtn');
+
+                let scoreEl = document.createElement('div');
+                scoreEl.classList.add('scoreEl');
+                let playerScore = 0;
+
+                // Split the string by space 
+                let parts = bakArray[i].split(' '); 
+                // Assign the parts to variables         
+    
+                minusBtn.textContent = '-';
+                divEl.textContent = parts[0];
+                numberEl.textContent = parseInt(parts[1]);
+                plusBtn.textContent = '+';
+                scoreEl.textContent = '';
+    
+                minusBtn.addEventListener('click', () => {
+                    playerScore--;
+                    console.log(playerScore);
+                    if (playerScore === -1){
+                        gameOverSound.play();
+                        totalDivEl.classList.add('gameOver');   
+                        minusBtn.classList.toggle('grey');
+                        plusBtn.classList.toggle('grey');
+                    } else if (playerScore === 0){
+                        audioElement.play();
+                        scoreEl.textContent = '';
+                    } else if (playerScore === 1){
+                        audioElement.play();
+                        scoreEl.textContent = '|';
+                    } else if (playerScore === 2) {
+                        audioElement.play();
+                        scoreEl.textContent = '| |';
+                        totalDivEl.classList.remove('killa');
+                        minusBtn.classList.remove('grey');
+                        // plusBtn.classList.toggle('grey');
+                    } else if (playerScore === -2) {
+                        // minusBtn.classList.add('grey');
+                        // plusBtn.classList.add('grey');
+                        playerScore = -1;
+                    }
+                    })
+    
+                plusBtn.addEventListener('click', () => {
+                    if(firstClick === 0){
+                        
+                        shuffleBtn.classList.toggle('hide');
+                        resetBtn.classList.toggle('hide');
+                    }
+                    firstClick++;
+                    playerScore++;
+                    audioElement.play();
+                    if (playerScore === 0){
+                        minusBtn.classList.toggle('grey');
+                        plusBtn.classList.toggle('grey');
+                        totalDivEl.classList.remove('gameOver');
+                        divEl.textContent = parts[0];
+                    }else if (playerScore === 1){
+                        scoreEl.textContent = '|';
+                    } else if (playerScore === 2) {
+                        scoreEl.textContent = '| |';
+                    } else if (playerScore >= 3) {
+                        playerScore = 3;
+                        scoreEl.textContent = '| | |';
+                        totalDivEl.classList.add('killa');
+                        // plusBtn.classList.toggle('hide');
+
+                        killaSound.play();
+                    }
+                })
+
+                shuffleBtn.addEventListener('click', () => {
+                    actualPlayersEl.textContent = '';
+                    if ( i === bakArray.length - 1){
+                        shuffleArray(bakArray);
+                        for ( let i = 1; i < playerCount; i ++){
+                        let parts = bakArray[i].split(' '); 
+                        divEl.textContent = parts[0];
+                        numberEl.textContent = parseInt(parts[1]);
+                        }
+                        console.log(bakArray);
+                        for (let i = 0; i < bakArray.length; i++){
+                            let totalDivEl = document.createElement('div');
+                            totalDivEl.classList.add('wasabi');
+                            
+        
+                            let minusBtn = document.createElement('button');
+                            minusBtn.classList.add('scoreBtn');
+        
+                            let divEl = document.createElement('div');
+                            let numberEl = document.createElement('div');
+                            numberEl.classList.add('numbino');
+                            
+                            let plusBtn = document.createElement('button');
+                            plusBtn.classList.add('scoreBtn');
+        
+                            let scoreEl = document.createElement('div');
+                            scoreEl.classList.add('scoreEl');
+                            let playerScore = 0;
+        
+                            let parts = bakArray[i].split(' '); 
+                
+                            minusBtn.textContent = '-';
+                            divEl.textContent = parts[0];
+                            numberEl.textContent = parseInt(parts[1]);
+                            plusBtn.textContent = '+';
+                            scoreEl.textContent = '';
+
+
+                            minusBtn.addEventListener('click', () => {
+                                shuffleBtn.classList.add('hide');
+                                resetBtn.classList.remove('hide');
+                                
+                                playerScore--;
+                                console.log(playerScore);
+                                if (playerScore === -1){
+                                    gameOverSound.play();
+                                    totalDivEl.classList.add('gameOver');   
+                                    minusBtn.classList.toggle('grey');
+                                    plusBtn.classList.toggle('grey');
+                                } else if (playerScore === 0){
+                                    audioElement.play();
+                                    scoreEl.textContent = '';
+                                } else if (playerScore === 1){
+                                    audioElement.play();
+                                    scoreEl.textContent = '|';
+                                } else if (playerScore === 2) {
+                                    audioElement.play();
+                                    scoreEl.textContent = '| |';
+                                    totalDivEl.classList.remove('killa');
+                                    minusBtn.classList.remove('grey');
+                                } else if (playerScore === -2) {
+                                    playerScore = -1;
+                                }
+                                })
+
+                            plusBtn.addEventListener('click', () => {
+                                shuffleBtn.classList.toggle('hide');
+                                if(firstClick === 0){
+                                    resetBtn.classList.toggle('hide');
+                                }
+                                firstClick++;
+                                playerScore++;
+                                audioElement.play();
+                                if (playerScore === 0){
+                                    minusBtn.classList.toggle('grey');
+                                    plusBtn.classList.toggle('grey');
+                                    totalDivEl.classList.remove('gameOver');
+                                    divEl.textContent = parts[0];
+                                }else if (playerScore === 1){
+                                    scoreEl.textContent = '|';
+                                } else if (playerScore === 2) {
+                                    scoreEl.textContent = '| |';
+                                } else if (playerScore >= 3) {
+                                    playerScore = 3;
+                                    scoreEl.textContent = '| | |';
+                                    totalDivEl.classList.add('killa');
+                                    killaSound.play();
+                                }
+                            })
+
+                            resetBtn.addEventListener('click', ()=> {
+                                shuffleBtn.classList.remove('hide');
+                                resetBtn.classList.add('hide');
+                                console.log('reset clicked!');
+                                scoreEl.textContent = '';
+                                totalDivEl.classList.remove('gameOver');
+                                totalDivEl.classList.remove('killa');
+                                plusBtn.classList.remove('grey');
+                                minusBtn.classList.remove('grey');
+                                firstClick = 0;
+                                playerScore = 0;
+        
+                            })
+
+                            totalDivEl.appendChild(minusBtn);
+                            totalDivEl.appendChild(divEl);
+                            totalDivEl.appendChild(numberEl);
+                            totalDivEl.appendChild(plusBtn);
+                            totalDivEl.appendChild(scoreEl);
+                            actualPlayersEl.appendChild(totalDivEl);
+                            // thirdEl.appendChild(actualPlayersEl);
+
+                        }
+                    }
+                })
+
+                resetBtn.addEventListener('click', ()=> {
+                    shuffleBtn.classList.add('hide');
+                    resetBtn.classList.add('hide');
+                    console.log('reset clicked!');
+                    scoreEl.textContent = '';
+                    totalDivEl.classList.remove('gameOver');
+                    totalDivEl.classList.remove('killa');
+                    plusBtn.classList.remove('grey');
+                    minusBtn.classList.remove('grey');
+
+                    firstClick = 0;
+                    console.log(playersArray);
+                    playerScore = 0;
+                    // plusBtn.classList.toggle('hide');
+                    // minusBtn.classList.toggle('hide');
+
+                })
+    
+
+                totalDivEl.appendChild(minusBtn);
+                totalDivEl.appendChild(divEl);
+                totalDivEl.appendChild(numberEl);
+                totalDivEl.appendChild(plusBtn);
+                totalDivEl.appendChild(scoreEl);
+                actualPlayersEl.appendChild(totalDivEl);
+    
+    
+            }
+    }
+})
+
 
 
 
