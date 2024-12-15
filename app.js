@@ -67,13 +67,16 @@ nextBtn.addEventListener('click', () => {
     dropdown = document.createElement('select');
     dropdown.id = 'numberDropdown';
 
-
-    for (let i = 1; i <= optionArray.length; i++) { 
-        const option = document.createElement('option'); 
-        option.value = i; 
-        option.textContent = i; 
-        dropdown.appendChild(option); 
+    if ( x === 1) {
+        console.log(x);
+        for (let i = 1; i <= optionArray.length; i++) { 
+            const option = document.createElement('option'); 
+            option.value = i; 
+            option.textContent = i; 
+            dropdown.appendChild(option); 
+        }
     }
+    
     
 
     
@@ -183,7 +186,7 @@ addBtn.addEventListener('click', () => {
                         scoreEl.textContent = '|';
                     } else if (playerScore === 2) {
                         audioElement.play();
-                        scoreEl.textContent = '| |';
+                        scoreEl.textContent = '||';
                         totalDivEl.classList.remove('killa');
                         minusBtn.classList.remove('grey');
                     } else if (playerScore === -2) {
@@ -204,10 +207,10 @@ addBtn.addEventListener('click', () => {
                     }else if (playerScore === 1){
                         scoreEl.textContent = '|';
                     } else if (playerScore === 2) {
-                        scoreEl.textContent = '| |';
+                        scoreEl.textContent = '||';
                     } else if (playerScore >= 3) {
                         playerScore = 3;
-                        scoreEl.textContent = '| | |';
+                        scoreEl.textContent = '|||';
                         totalDivEl.classList.add('killa');
                         killaSound.play();
                     }
@@ -325,17 +328,24 @@ addBtn.addEventListener('click', () => {
                 })
 
                 resetBtn.addEventListener('click', ()=> {
+                    x = 1;
+                    dropdown.value = x;
+                    console.log(bakArray);
+                    let parts = bakArray[i].split(' '); 
+                    console.log(parts[0]);
+                    playerNameEl.classList.toggle('hide');
+                    thirdEl.classList.toggle('hide');
                     shuffleBtn.classList.remove('hide');
                     resetBtn.classList.add('hide');
+                    addBtn.textContent = 'Confirm';
                     console.log('reset clicked!');
-                    scoreEl.textContent = '';
-                    totalDivEl.classList.remove('gameOver');
-                    totalDivEl.classList.remove('killa');
-                    plusBtn.classList.remove('grey');
-                    minusBtn.classList.remove('grey');
-
-                    console.log(playersArray);
-                    playerScore = 0;
+                    // scoreEl.textContent = '';
+                    // totalDivEl.classList.remove('gameOver');
+                    // totalDivEl.classList.remove('killa');
+                    // plusBtn.classList.remove('grey');
+                    // minusBtn.classList.remove('grey');
+                    // playerScore = 0;
+                    // playerNumber = 0;
                 })
 
                 totalDivEl.appendChild(minusBtn);
