@@ -170,7 +170,7 @@ addBtn.addEventListener('click', () => {
     
                 minusBtn.addEventListener('click', () => {
                     shuffleBtn.classList.add('hide');
-                    resetBtn.classList.remove('hide');
+                    // resetBtn.classList.remove('hide');
                     playerScore--;
                     console.log(playerScore);
                     if (playerScore === -1){
@@ -196,7 +196,7 @@ addBtn.addEventListener('click', () => {
     
                 plusBtn.addEventListener('click', () => {
                     shuffleBtn.classList.add('hide');
-                    resetBtn.classList.remove('hide');
+                    // resetBtn.classList.remove('hide');
                     playerScore++;
                     audioElement.play();
                     if (playerScore === 0){
@@ -255,7 +255,7 @@ addBtn.addEventListener('click', () => {
 
                             minusBtn.addEventListener('click', () => {
                                 shuffleBtn.classList.add('hide');
-                                resetBtn.classList.remove('hide');
+                                // resetBtn.classList.remove('hide');
                                 
                                 playerScore--;
                                 console.log(playerScore);
@@ -282,7 +282,7 @@ addBtn.addEventListener('click', () => {
 
                             plusBtn.addEventListener('click', () => {
                                 shuffleBtn.classList.add('hide');
-                                resetBtn.classList.remove('hide');
+                                // resetBtn.classList.remove('hide');
                                 // firstClick++;
                                 playerScore++;
                                 audioElement.play();
@@ -305,7 +305,7 @@ addBtn.addEventListener('click', () => {
 
                             resetBtn.addEventListener('click', ()=> {
                                 shuffleBtn.classList.remove('hide');
-                                resetBtn.classList.add('hide');
+                                // resetBtn.classList.add('hide');
                                 console.log('reset clicked!');
                                 scoreEl.textContent = '';
                                 totalDivEl.classList.remove('gameOver');
@@ -339,13 +339,6 @@ addBtn.addEventListener('click', () => {
                     resetBtn.classList.add('hide');
                     addBtn.textContent = 'Confirm';
                     console.log('reset clicked!');
-                    // scoreEl.textContent = '';
-                    // totalDivEl.classList.remove('gameOver');
-                    // totalDivEl.classList.remove('killa');
-                    // plusBtn.classList.remove('grey');
-                    // minusBtn.classList.remove('grey');
-                    // playerScore = 0;
-                    // playerNumber = 0;
                 })
 
                 totalDivEl.appendChild(minusBtn);
