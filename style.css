@@ -106,8 +106,11 @@ p {
 }
 
 .numbino {
-    min-width: 20px;
+    min-width: 25px;
     text-align: center;
+    font-size: xx-large;
+    /* background-color: beige; */
+    /* border-radius: 10px; */
 }
 
 
