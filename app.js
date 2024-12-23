@@ -261,10 +261,10 @@ addBtn.addEventListener('click', () => {
                                     scoreEl.textContent = '';
                                 } else if (playerScore === 1){
                                     audioElement.play();
-                                    scoreEl.textContent = ' | ';
+                                    scoreEl.textContent = '|';
                                 } else if (playerScore === 2) {
                                     audioElement.play();
-                                    scoreEl.textContent = ' || ';
+                                    scoreEl.textContent = '||';
                                     totalDivEl.classList.remove('killa');
                                     minusBtn.classList.remove('grey');
                                 } else if (playerScore === -2) {

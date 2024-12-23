@@ -89,7 +89,7 @@ p {
 
 
 
-.scoreBtn, .scoreEl {
+.scoreBtn {
     font-size: xx-large;
     border-radius: 10px;
     min-width: 40px;
@@ -98,19 +98,17 @@ p {
 .scoreEl {
     display: flex;
     justify-content: center;
-    font-size: 55px;
+    font-size: 40px;
     font-weight: bolder;
     margin-bottom: 7px;
-    padding: 3px;
-    /* padding-left: 10px; */
-    /* padding-right: 10px; */
+    /* padding: 3px; */
 }
 
 .wasabi {
-    margin-right: -10px;
-    margin-left: -5px;
+    margin-right: -13px;
+    margin-left: -10px;
     border-radius: 12px;
-    padding: 10px;
+    padding: 5px;
     margin-top: 5px;
     margin-bottom: 5px;
     display: flex;
@@ -118,14 +116,14 @@ p {
     align-items: center;
 }
 
-.namer {
+/* .namer {
     margin-left: 3px;
-}
+} */
 
 .numbino {
     padding: 3px;
     text-align: center;
-    font-size: 35px;
+    font-size: 40px;
 }
 
 
