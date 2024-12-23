@@ -27,11 +27,6 @@ h1 {
     background-color: rgb(93, 166, 177);
 }
 
-.third {
-    transform-origin: center; 
-    padding-left: 25px;
-    padding-right: 50px;
-}
 
 
 .players {
@@ -83,10 +78,8 @@ p {
 }
 
 .wasabi {
-    min-width: 320px;
+    min-width: 335px;
     height: 70px;
-    margin-right: -8px;
-    margin-left: -10px;
     border-radius: 12px;
     padding: 5px;
     margin-top: 5px;
