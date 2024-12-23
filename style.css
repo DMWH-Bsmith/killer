@@ -19,7 +19,6 @@ h1 {
     align-items: center;
 }
 
-/* */
 
 .first, .second, .third {
     margin-top: 25px;
@@ -48,12 +47,12 @@ input {
 }
 
 
-/* single player row */
 .thirdly {
     margin: -2px;
     align-items: center;
     display: flex;
     flex-direction: row;
+    border: 5px solid palevioletred;
 }
 
 
@@ -78,7 +77,7 @@ p {
 }
 
 .wasabi {
-    min-width: 335px;
+    min-width: 350px;
     height: 70px;
     border-radius: 12px;
     padding: 5px;

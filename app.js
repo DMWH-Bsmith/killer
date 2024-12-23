@@ -77,25 +77,10 @@ nextBtn.addEventListener('click', () => {
         }
     }
     
-    
-
-    
     singlePlayerDiv.appendChild(input);
     singlePlayerDiv.appendChild(dropdown);
     playerDivEl.appendChild(singlePlayerDiv);
     input.focus();
-
-
-   
-        
-     
-
-   
-
-    
-    
-
-
     
     backBtn.addEventListener('click', ()=> {
         playerDivEl.removeElement;
@@ -120,10 +105,10 @@ addBtn.addEventListener('click', () => {
     }
     
     for (let i = 1; i <= optionArray.length; i++) { 
-    const option = document.createElement('option'); 
-    option.value = optionArray[i];
-    option.textContent = optionArray[i]; 
-    dropdown.appendChild(option);   
+        const option = document.createElement('option'); 
+        option.value = optionArray[i];
+        option.textContent = optionArray[i]; 
+        dropdown.appendChild(option);   
     }
 
     let finalPlayer = playerName + ' ' + playerNumber;
@@ -282,12 +267,12 @@ addBtn.addEventListener('click', () => {
                                     totalDivEl.classList.remove('gameOver');
                                     divEl.textContent = parts[0];
                                 }else if (playerScore === 1){
-                                    scoreEl.textContent = ' | ';
+                                    scoreEl.textContent = '|';
                                 } else if (playerScore === 2) {
-                                    scoreEl.textContent = ' || ';
+                                    scoreEl.textContent = '||';
                                 } else if (playerScore >= 3) {
                                     playerScore = 3;
-                                    scoreEl.textContent = ' ||| ';
+                                    scoreEl.textContent = '|||';
                                     totalDivEl.classList.add('killa');
                                     killaSound.play();
                                 }
