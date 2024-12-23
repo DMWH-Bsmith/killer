@@ -101,16 +101,20 @@ p {
     font-size: 55px;
     font-weight: bolder;
     margin-bottom: 7px;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: 3px;
+    /* padding-left: 10px; */
+    /* padding-right: 10px; */
 }
 
 .wasabi {
+    margin-right: -10px;
+    margin-left: -5px;
     border-radius: 12px;
     padding: 10px;
     margin-top: 5px;
     margin-bottom: 5px;
     display: flex;
+    justify-content: space-around;
     align-items: center;
 }
 
@@ -121,7 +125,7 @@ p {
 .numbino {
     padding: 3px;
     text-align: center;
-    font-size: 55px;
+    font-size: 35px;
 }
 
 
