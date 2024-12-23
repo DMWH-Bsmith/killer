@@ -117,19 +117,13 @@ addBtn.addEventListener('click', () => {
     let index = optionArray.indexOf(playerNumber); 
     if (index !== -1) { 
         optionArray.splice(index, 1); 
-        // Remove the element at the found index 
-        }
-
-        console.log(optionArray);
+    }
     
     for (let i = 1; i <= optionArray.length; i++) { 
-        // console.log(optionArray.length);
-        const option = document.createElement('option'); 
-        option.value = optionArray[i];
-        // console.log(optionArray[i]); 
-        option.textContent = optionArray[i]; 
-        dropdown.appendChild(option); 
-        
+    const option = document.createElement('option'); 
+    option.value = optionArray[i];
+    option.textContent = optionArray[i]; 
+    dropdown.appendChild(option);   
     }
 
     let finalPlayer = playerName + ' ' + playerNumber;
@@ -150,6 +144,7 @@ addBtn.addEventListener('click', () => {
                 minusBtn.classList.add('scoreBtn');
 
                 let divEl = document.createElement('div');
+                divEl.classList.add('namer');
                 let numberEl = document.createElement('div');
                 numberEl.classList.add('numbino');
                 
@@ -196,7 +191,6 @@ addBtn.addEventListener('click', () => {
     
                 plusBtn.addEventListener('click', () => {
                     shuffleBtn.classList.add('hide');
-                    // resetBtn.classList.remove('hide');
                     playerScore++;
                     audioElement.play();
                     if (playerScore === 0){
@@ -255,8 +249,6 @@ addBtn.addEventListener('click', () => {
 
                             minusBtn.addEventListener('click', () => {
                                 shuffleBtn.classList.add('hide');
-                                // resetBtn.classList.remove('hide');
-                                
                                 playerScore--;
                                 console.log(playerScore);
                                 if (playerScore === -1){
@@ -269,10 +261,10 @@ addBtn.addEventListener('click', () => {
                                     scoreEl.textContent = '';
                                 } else if (playerScore === 1){
                                     audioElement.play();
-                                    scoreEl.textContent = '|';
+                                    scoreEl.textContent = ' | ';
                                 } else if (playerScore === 2) {
                                     audioElement.play();
-                                    scoreEl.textContent = '| |';
+                                    scoreEl.textContent = ' || ';
                                     totalDivEl.classList.remove('killa');
                                     minusBtn.classList.remove('grey');
                                 } else if (playerScore === -2) {
@@ -282,8 +274,6 @@ addBtn.addEventListener('click', () => {
 
                             plusBtn.addEventListener('click', () => {
                                 shuffleBtn.classList.add('hide');
-                                // resetBtn.classList.remove('hide');
-                                // firstClick++;
                                 playerScore++;
                                 audioElement.play();
                                 if (playerScore === 0){
@@ -292,12 +282,12 @@ addBtn.addEventListener('click', () => {
                                     totalDivEl.classList.remove('gameOver');
                                     divEl.textContent = parts[0];
                                 }else if (playerScore === 1){
-                                    scoreEl.textContent = '|';
+                                    scoreEl.textContent = ' | ';
                                 } else if (playerScore === 2) {
-                                    scoreEl.textContent = '| |';
+                                    scoreEl.textContent = ' || ';
                                 } else if (playerScore >= 3) {
                                     playerScore = 3;
-                                    scoreEl.textContent = '| | |';
+                                    scoreEl.textContent = ' ||| ';
                                     totalDivEl.classList.add('killa');
                                     killaSound.play();
                                 }

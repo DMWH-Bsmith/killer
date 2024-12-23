@@ -87,30 +87,41 @@ p {
     text-align: center;
 }
 
-.wasabi {
-    border-radius: 12px;
-    padding: 15px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
 
-}
 
 .scoreBtn, .scoreEl {
-    text-align: center;
     font-size: xx-large;
     border-radius: 10px;
     min-width: 40px;
 }
 
+.scoreEl {
+    display: flex;
+    justify-content: center;
+    font-size: 55px;
+    font-weight: bolder;
+    margin-bottom: 7px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.wasabi {
+    border-radius: 12px;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.namer {
+    margin-left: 3px;
+}
+
 .numbino {
-    min-width: 25px;
+    padding: 3px;
     text-align: center;
-    font-size: xx-large;
-    /* background-color: beige; */
-    /* border-radius: 10px; */
+    font-size: 55px;
 }
 
 
