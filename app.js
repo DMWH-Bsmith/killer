@@ -111,7 +111,7 @@ addBtn.addEventListener('click', () => {
     x++;
     audioElement.play();
     input.focus();
-    let playerName = input.value.toUpperCase();
+    let playerName = (input.value.trim()).toUpperCase();
     let playerNumber = dropdown.value;
 
     let index = optionArray.indexOf(playerNumber); 

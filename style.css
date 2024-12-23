@@ -98,13 +98,10 @@ p {
 }
 
 .scoreEl {
-    /* display: flex;
-    justify-content: center; */
     text-align: center;
     font-size: 60px;
     font-weight:900;
-    margin-bottom: 7px;
-    width: 75px;
+    width: 70px;
 }
 
 .wasabi {
