@@ -51,7 +51,7 @@ const trEl = document.createElement('tr');
 
 const playaBoardHeader = document.createElement('th');
 playaBoardHeader.classList.add('col');
-playaBoardHeader.textContent = 'Player';
+playaBoardHeader.textContent = 'Player/';
 
 const numbaBoardHeader = document.createElement('th');
 numbaBoardHeader.classList.add('col');

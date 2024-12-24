@@ -18,9 +18,14 @@ h1 {
 }
 
 
-.first, .second, .third {
+.first, .third {
     margin-top: 25px;
     min-height: 400px;
+    background-color: rgb(93, 166, 177);
+}
+
+.second {
+    /* margin-top: 10px; */
     background-color: rgb(93, 166, 177);
 }
 
@@ -184,13 +189,15 @@ p {
 
 
 
+
 .playingField {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     flex-direction: column;
-    min-height: 200px;
+    text-align: center;
+    min-height: 100px;
+    align-items: center;
 }
-
 
 
 .boardHeaders {
