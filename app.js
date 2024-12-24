@@ -86,7 +86,6 @@ nextBtn.addEventListener('click', () => {
     audioElement.play();
     introEl.classList.toggle('hide');
     playerNameEl.classList.toggle('hide');
-    playingFieldEl.classList.toggle('hide');
 
     playerCount = parseInt(playerCountVal.value, 10);
 
@@ -127,13 +126,14 @@ nextBtn.addEventListener('click', () => {
     })
 })
 
+
 addBtn.addEventListener('click', () => {
+    let playerName = (input.value.trim()).toUpperCase();
+    if (playerName){
     x++;
     audioElement.play();
     input.focus();
-    let playerName = (input.value.trim()).toUpperCase();
     let playerNumber = dropdown.value;
-
     let index = optionArray.indexOf(playerNumber); 
     if (index !== -1) { 
         optionArray.splice(index, 1); 
@@ -150,6 +150,30 @@ addBtn.addEventListener('click', () => {
     bakArray.push(finalPlayer);
     input.value = '';
     dropdown.value = x;
+    ///////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////
+    const container = document.createElement('div');
+    const table = document.createElement('table');
+    const tBody = document.createElement('tbody');
+    const trEl2 = document.createElement('tr');
+
+    const thActPlaya = document.createElement('td');
+    thActPlaya.classList.add('col');
+    thActPlaya.textContent = playerName;
+
+    const thActNum = document.createElement('td');
+    thActNum.classList.add('col');
+    thActNum.textContent = playerNumber;
+
+    trEl2.appendChild(thActPlaya);
+    trEl2.appendChild(thActNum);
+
+    tBody.appendChild(trEl2);
+    table.appendChild(tBody);
+    container.appendChild(table);
+    playingFieldEl.appendChild(container);
+    ///////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////
     if(playerCount === bakArray.length){
 
             playerNameEl.classList.toggle('hide');
@@ -359,7 +383,10 @@ addBtn.addEventListener('click', () => {
                 actualPlayersEl.appendChild(totalDivEl);
             }
     }
+}
+input.focus();
 })
+
 
 
 
