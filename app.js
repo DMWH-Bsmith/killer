@@ -1,9 +1,11 @@
 ////////////////////////////////////////////////////////////////////////
 // ELEMENTS ///////////////////////////////////////////////////////////
 const introEl = document.querySelector('.first');
+const playingFieldEl = document.querySelector('.playingField');
 const playerNameEl = document.querySelector('.second');
+// playerNameEl.classList.add('.hide');
 const thirdEl = document.querySelector('.third');
-const playerDivEl = document.querySelector('.players')
+const playerDivEl = document.querySelector('.players');
 const shuffleBtnDivEl = document.querySelector('.shuffleBtnDiv');
 const actualPlayersEl = document.querySelector('.actualPlayers');
 const singlePlayerRowDiv = document.querySelector('.wasabi');
@@ -35,6 +37,37 @@ let dropdown;
 //////////////////////////////////////////////////////////////////////
 
 
+const container = document.createElement('div');
+container.classList.add('container');
+
+const table = document.createElement('table');
+// table.classList.add('table-striped');
+
+const tHead = document.createElement('thead');
+tHead.classList.add('boardHeaders');
+
+
+const trEl = document.createElement('tr');
+
+const playaBoardHeader = document.createElement('th');
+playaBoardHeader.classList.add('col');
+playaBoardHeader.textContent = 'Player';
+
+const numbaBoardHeader = document.createElement('th');
+numbaBoardHeader.classList.add('col');
+numbaBoardHeader.textContent = 'Number';
+
+
+trEl.appendChild(playaBoardHeader);
+trEl.appendChild(numbaBoardHeader);
+tHead.appendChild(trEl);
+table.appendChild(tHead);
+container.appendChild(table);
+playingFieldEl.appendChild(container);
+
+
+
+
 
 
 function shuffleArray(array) { 
@@ -53,6 +86,8 @@ nextBtn.addEventListener('click', () => {
     audioElement.play();
     introEl.classList.toggle('hide');
     playerNameEl.classList.toggle('hide');
+    playingFieldEl.classList.toggle('hide');
+
     playerCount = parseInt(playerCountVal.value, 10);
 
 
