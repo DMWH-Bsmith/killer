@@ -24,6 +24,11 @@ h1 {
     background-color: rgb(93, 166, 177);
 }
 
+.third {
+    display: flex;
+    justify-content: center;
+}
+
 .second {
     /* margin-top: 10px; */
     background-color: rgb(93, 166, 177);
@@ -66,6 +71,7 @@ p {
 
 
 .scoreBtn {
+    margin: 5px;
     align-items: center;
     text-align: center;
     font-size: xx-large;
@@ -77,19 +83,20 @@ p {
     text-align: center;
     font-size: 60px;
     font-weight:900;
-    /* width: 50px; */
+    padding-left: 10px;
+    padding-right: 10px;
     margin-bottom: 7px;
+    min-width: 50px;
 }
 
 .wasabi {
-    min-width: 350px;
     height: 70px;
     border-radius: 12px;
     padding: 5px;
     margin-top: 5px;
     margin-bottom: 5px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
 }
 

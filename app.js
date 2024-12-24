@@ -41,7 +41,6 @@ const container = document.createElement('div');
 container.classList.add('container');
 
 const table = document.createElement('table');
-// table.classList.add('table-striped');
 
 const tHead = document.createElement('thead');
 tHead.classList.add('boardHeaders');
@@ -272,6 +271,8 @@ addBtn.addEventListener('click', () => {
                             minusBtn.classList.add('scoreBtn');
         
                             let divEl = document.createElement('div');
+                            divEl.classList.add('namer');
+
                             let numberEl = document.createElement('div');
                             numberEl.classList.add('numbino');
                             
