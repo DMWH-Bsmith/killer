@@ -96,7 +96,7 @@ p {
     margin-top: 5px;
     margin-bottom: 5px;
     display: flex;
-    justify-content: space-around;
+    /* justify-content: space-around; */
     align-items: center;
 }
 
@@ -115,7 +115,7 @@ p {
 
 
 .killa {
-    background-color: lightgreen;
+    background-color: rgb(18, 141, 18);
 }
 
 .gameOver, .grey {
